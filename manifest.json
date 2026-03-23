@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "REAdobe Clean Teams",
+  "short_name": "REAdobe",
+  "version": "1.0.0",
+  "description": "Automatically detect and leave DEL- prefixed Adobe organizations — any language, no popups.",
+
+  "permissions": ["tabs"],
+  "host_permissions": ["https://*.adobe.com/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.adobe.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "action": {
+    "default_title": "REAdobe Clean Teams"
+  }
+}
